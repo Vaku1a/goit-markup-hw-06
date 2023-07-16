@@ -41,10 +41,10 @@ body {
   color: var(--secondary-text-color);
   background-color: var(--primary-bg-color);
   font-family: "Roboto", sans-serif;
-  font-style: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  letter-spacing: 0.32px;
+  letter-spacing: 0.02em;
 }
 
 a {
@@ -60,6 +60,23 @@ fieldset {
   margin: 0;
   border: none;
 }
+
+.section {
+  padding: 96px 0px;
+}
+
+@media only screen and (min-width: 768px) {
+  .section {
+    padding: 96px 0px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .section {
+    padding: 120px 0;
+  }
+}
+
 
 /* Header 2 */
 .header-two {
@@ -80,19 +97,28 @@ fieldset {
   color: var(--primary-text-color);
 }
 
-.text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: var(--secondary-text-color);
+/* Base styles for small devieses */
+.container {
+  min-width: 320px;
+  max-width: 428px;
+  margin: 0 auto;
+  padding: 0 16px;
+  outline: 2px solid red;
 }
 
+/* Tablet screen */
+@media screen and (min-width:768px) {
+  .container {
+    max-width: 768px;
+  }
+}
 
-.container {
-  width: 1158px;
-  padding: 0 15px;
-  margin: 0 auto;
+/* Desktop screen */
+@media screen and (min-width:1440px) {
+  .container {
+    max-width: 1158px;
+    padding: 0 15px;
+  }
 }
 
 /**
@@ -299,10 +325,6 @@ fieldset {
   |============================
 */
 
-.features {
-  padding: 120px 0;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -316,51 +338,109 @@ fieldset {
   overflow: hidden;
 }
 
-.features-list {
-  display: flex;
-  gap: 24px;
+
+@media only screen and (min-width: 768px) {
+  .features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px
+  }
 }
 
-.features-list .item:last-child {
-  margin-right: 0px;
+@media only screen and (min-width: 1440px) {
+  .features-list {
+    width: 1128px;
+    margin: 0 auto;
+  }
 }
 
-.features-item {
-  width: calc((100% - 72px) / 4);
+@media only screen and (max-width: 767px) {
+  .features-item:not(:last-child) {
+    margin-bottom: 72px;
+  }
 }
 
-.features-link-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 264px;
-  height: 112px;
-  border-radius: 4px;
-  background-color: var(--secondary-acnt-bg-color);
-  margin-bottom: 8px;
+@media only screen and (min-width: 768px) {
+  .features-item {
+    flex-basis: calc((100% - 24px) / 2);
+  }
 }
 
-.features-icon {
-  margin: 24px 100px;
+@media only screen and (min-width: 1440px) {
+  .features-item {
+    flex-basis: calc((100% - 3 * 24px) / 4);
+  }
 }
 
-.feature-subtitle {
-  margin: 8px 0;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
-  color: var(--primary-text-color);
+@media only screen and (max-width: 1439px) {
+  .features-link-wrapper {
+    display: none;
+  }
 }
 
-.feature-text {
-  letter-spacing: 0.02em;
-  color: var(--secondary-text-color);
+@media only screen and (min-width: 1440px) {
+  .features-link-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 264px;
+    height: 112px;
+    border-radius: 4px;
+    background-color: var(--secondary-acnt-bg-color);
+    margin-bottom: 8px;
+  }
 }
 
-.sample-list {
-  background-color: var(--primary-bg-color);
+@media only screen and (max-width: 1439px) {
+  .features-icon {
+    display: none;
+  }
 }
+
+
+@media only screen and (min-width: 1440px) {
+  .features-icon {
+    margin: 24px 100px;
+  }
+}
+
+
+@media only screen and (min-width: 330px) {
+  .feature-subtitle {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: var(--primary-text-color);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .feature-subtitle {
+    text-align: left;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .feature-subtitle {
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .feature-text {
+    font-weight: 500;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .feature-text {
+    font-weight: 400;
+  }
+}
+
 
 /**
   |============================
@@ -381,6 +461,7 @@ fieldset {
   gap: 24px;
   margin-left: auto;
   margin-right: auto;
+  background-color: var(--primary-bg-color);
 }
 
 .sample-list:last-child {
