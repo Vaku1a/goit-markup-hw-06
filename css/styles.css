@@ -65,6 +65,7 @@ fieldset {
 
 .section {
   padding: 96px 0px;
+  margin: 0 auto;
 }
 
 @media only screen and (min-width: 1440px) {
@@ -255,21 +256,46 @@ fieldset {
   | Hero - Section 1
   |============================
 */
-.hero {
-  display: flex;
-  justify-content: center;
-  padding: 188px 0;
-  margin: 0 auto;
-  max-width: 1440px;
-  background-color: var(--accent-bg-color);
-  background-image: var(--main-gradient), url(../images/hero/bg-people-office.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+
+@media only screen and (max-width: 767px) {
+  .hero {
+    padding: 112px 54px;
+    width: 428px;
+    background-image: var(--main-gradient), url(../images/hero/bg-people-office.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hero {
+    width: 768px;
+    padding: 112px 136px;
+    background-image: var(--main-gradient), url(../images/hero/bg-people-office.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero {
+    width: 1440px;
+    padding: 188px 472px;
+    background-image: var(--main-gradient), url(../images/hero/bg-people-office.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.hero-warap {
+  padding: 0 0;
 }
 
 .hero-title {
-  display: block;
+  /* display: block;
   width: 496px;
 
   margin: 0 auto;
@@ -278,8 +304,42 @@ fieldset {
   font-size: 56px;
   line-height: 1.07;
   letter-spacing: 1.12px;
-  color: var(--accent-text-color);
+  color: var(--accent-text-color); */
 }
+
+@media only screen and (max-width: 767px) {
+  .hero-title {
+    width: 320px;
+    color: var(--accent-text-color);
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hero-title {
+    text-align: center;
+    color: var(--accent-text-color);
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .hero-title {
+    font-size: 56px;
+    line-height: 1.12;
+  }
+}
+
 
 .hero-btn {
   display: block;
@@ -334,6 +394,11 @@ fieldset {
   overflow: hidden;
 }
 
+.featuers-wrap {}
+
+@media only screen and (max-width: 767px) {
+  .features-list {}
+}
 
 @media only screen and (min-width: 768px) {
   .features-list {
@@ -632,8 +697,23 @@ fieldset {
   |============================
 */
 
-.customer {
-  padding: 120px 0;
+@media only screen and (max-width: 767px) {
+  .customer {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .customer {
+    padding: 96px 108px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .customer {
+    padding: 120px 16px;
+  }
 }
 
 .section-title {
@@ -642,6 +722,7 @@ fieldset {
 
 .clients-list {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 24px;
@@ -651,6 +732,41 @@ fieldset {
   transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+@media only screen and (max-width: 767px) {
+  .clients-item {
+    flex-basis: calc((100 - 16px) / 2);
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .clients-item:not(:nth-last-child(-n+2)) {
+    margin-bottom: 48px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .clients-item {
+    flex-basis: calc((100 - 2 * 24px) / 3);
+  }
+}
+
+@media only screen and (max-width: 1439px) {
+  .clients-item:not(:nth-last-child(-n+3)) {
+    margin-bottom: 48px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .clients-item {
+    flex-basis: calc((100 - 5 * 24px) / 6);
+  }
+
+  .clients-item:not(:nth-last-child(-n+6)) {
+    margin-bottom: 48px;
+  }
+}
+
 
 .clients-link {
   display: flex;
